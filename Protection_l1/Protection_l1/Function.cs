@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Protection_l1
+namespace Encryption
 {
     public class Function
     {
@@ -45,6 +47,42 @@ namespace Protection_l1
                 if (n % i == 0)
                     return false;
             return true;
+        }
+
+        public string OpenFile()
+        {
+            string textfile = null;
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = "D:\\Project_lab\\GitHub\\Repos\\TheDevelopmentOfMeansOfProtection";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            StreamReader reader = new StreamReader(openFileDialog1.FileName, Encoding.GetEncoding("windows-1251"));
+                            while (!reader.EndOfStream)
+                            {
+                                textfile += reader.ReadLine();
+                            }
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+
+            return textfile;
         }
     }
 }

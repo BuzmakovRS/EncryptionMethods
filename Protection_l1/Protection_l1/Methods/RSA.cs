@@ -1,12 +1,14 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Encryption;
 
-namespace Protection_l1
+namespace EncryptionMethods.Methods
 {
     class RSA
     {
@@ -14,7 +16,7 @@ namespace Protection_l1
         public BigInteger q = new BigInteger();     //y
         Function func = new Function();
 
-        internal List<string> rsaChiper(string text, string ps, string qs)
+        internal List<string> EncryptionRsa(string text, string ps, string qs)
         {
             List<string> result = new List<string>();
             string result_text = String.Empty;
@@ -26,7 +28,7 @@ namespace Protection_l1
                     BigInteger m = BigInteger.Multiply((p - 1), (q - 1));
                     BigInteger e = Calculate_e(m);
                     BigInteger d = Calculate_d(e, m);
-                    result_text = RSA_Endoce(text, e, n);
+                    result_text = RSA_Encode(text, e, n);
                     string result_d = d.ToString();
                     string result_n = n.ToString();
                     result.Add(result_text);
@@ -76,7 +78,7 @@ namespace Protection_l1
             return x;
         }
 
-        internal string RSA_Endoce(string s, BigInteger e, BigInteger n)
+        internal string RSA_Encode(string s, BigInteger e, BigInteger n)
         {
             string result = String.Empty;
 
@@ -93,7 +95,7 @@ namespace Protection_l1
 
         //----------------------------------------------------------------------------------------------------
         //RSA - Дешифровка
-        internal string rsaDecryption(string str, string ds, string ns)
+        internal string DecryptionRsa(string str, string ds, string ns)
         {
             string result = String.Empty;
             BigInteger d, n;
@@ -101,13 +103,13 @@ namespace Protection_l1
             {
                 String[] text_2_array = str.Split(' ');
                 List<string> input = new List<string>(text_2_array);
-                result = RSA_Dedoce(input, d, n);
+                result = RSA_Decode(input, d, n);
             }
             else MessageBox.Show("Проверьте корректность ключей(числовой формат)");
             return result;
         }
 
-        internal string RSA_Dedoce(List<string> input, BigInteger d, BigInteger n)
+        internal string RSA_Decode(List<string> input, BigInteger d, BigInteger n)
         {
             string result = "";
 

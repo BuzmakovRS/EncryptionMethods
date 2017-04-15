@@ -5,8 +5,9 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Encryption;
 
-namespace Protection_l1
+namespace EncryptionMethods.Methods
 {
     class Diffie_Hellman
     {

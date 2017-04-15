@@ -1,4 +1,4 @@
-﻿namespace Protection_l1
+﻿namespace Encryption
 {
     partial class Form1
     {
@@ -41,6 +41,11 @@
             this.perform2 = new System.Windows.Forms.Button();
             this.buttonClear2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox_TEA_key = new System.Windows.Forms.TextBox();
+            this.label_TEA_key = new System.Windows.Forms.Label();
+            this.button_TEA_key = new System.Windows.Forms.Button();
+            this.button_qv = new System.Windows.Forms.Button();
+            this.label_var = new System.Windows.Forms.Label();
             this.textBox_v = new System.Windows.Forms.TextBox();
             this.textBox_q = new System.Windows.Forms.TextBox();
             this.label_v = new System.Windows.Forms.Label();
@@ -54,6 +59,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label_message1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox_TEA_key2 = new System.Windows.Forms.TextBox();
+            this.label_TEA_key2 = new System.Windows.Forms.Label();
+            this.label_keys = new System.Windows.Forms.Label();
             this.textBox_k = new System.Windows.Forms.TextBox();
             this.label_k = new System.Windows.Forms.Label();
             this.label_n = new System.Windows.Forms.Label();
@@ -67,9 +75,6 @@
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label_var = new System.Windows.Forms.Label();
-            this.button_qv = new System.Windows.Forms.Button();
-            this.label_keys = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -80,6 +85,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 3);
             this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(80, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Зашифровать:";
@@ -148,7 +154,7 @@
             // 
             // perform1
             // 
-            this.perform1.Location = new System.Drawing.Point(434, 121);
+            this.perform1.Location = new System.Drawing.Point(434, 138);
             this.perform1.Name = "perform1";
             this.perform1.Size = new System.Drawing.Size(86, 27);
             this.perform1.TabIndex = 10;
@@ -158,7 +164,7 @@
             // 
             // buttonClear1
             // 
-            this.buttonClear1.Location = new System.Drawing.Point(523, 121);
+            this.buttonClear1.Location = new System.Drawing.Point(523, 138);
             this.buttonClear1.Name = "buttonClear1";
             this.buttonClear1.Size = new System.Drawing.Size(80, 27);
             this.buttonClear1.TabIndex = 11;
@@ -190,6 +196,9 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBox_TEA_key);
+            this.panel1.Controls.Add(this.label_TEA_key);
+            this.panel1.Controls.Add(this.button_TEA_key);
             this.panel1.Controls.Add(this.button_qv);
             this.panel1.Controls.Add(this.label_var);
             this.panel1.Controls.Add(this.textBox_v);
@@ -216,12 +225,60 @@
             this.panel1.Size = new System.Drawing.Size(791, 176);
             this.panel1.TabIndex = 14;
             // 
+            // textBox_TEA_key
+            // 
+            this.textBox_TEA_key.Location = new System.Drawing.Point(662, 128);
+            this.textBox_TEA_key.Name = "textBox_TEA_key";
+            this.textBox_TEA_key.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox_TEA_key.Size = new System.Drawing.Size(116, 20);
+            this.textBox_TEA_key.TabIndex = 34;
+            // 
+            // label_TEA_key
+            // 
+            this.label_TEA_key.AutoSize = true;
+            this.label_TEA_key.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_TEA_key.Location = new System.Drawing.Point(609, 131);
+            this.label_TEA_key.Name = "label_TEA_key";
+            this.label_TEA_key.Size = new System.Drawing.Size(51, 13);
+            this.label_TEA_key.TabIndex = 33;
+            this.label_TEA_key.Text = "TEA_key";
+            // 
+            // button_TEA_key
+            // 
+            this.button_TEA_key.Location = new System.Drawing.Point(434, 97);
+            this.button_TEA_key.Name = "button_TEA_key";
+            this.button_TEA_key.Size = new System.Drawing.Size(86, 35);
+            this.button_TEA_key.TabIndex = 32;
+            this.button_TEA_key.Text = "Сгенеривать ключ (TEA)";
+            this.button_TEA_key.UseVisualStyleBackColor = true;
+            this.button_TEA_key.Click += new System.EventHandler(this.button_TEA_key_Click);
+            // 
+            // button_qv
+            // 
+            this.button_qv.Location = new System.Drawing.Point(523, 49);
+            this.button_qv.Name = "button_qv";
+            this.button_qv.Size = new System.Drawing.Size(80, 42);
+            this.button_qv.TabIndex = 31;
+            this.button_qv.Text = "Сгенеривать q и v";
+            this.button_qv.UseVisualStyleBackColor = true;
+            this.button_qv.Click += new System.EventHandler(this.button_qv_Click);
+            // 
+            // label_var
+            // 
+            this.label_var.AutoSize = true;
+            this.label_var.Location = new System.Drawing.Point(672, 3);
+            this.label_var.Name = "label_var";
+            this.label_var.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label_var.Size = new System.Drawing.Size(76, 13);
+            this.label_var.TabIndex = 30;
+            this.label_var.Text = "Переменные:";
+            // 
             // textBox_v
             // 
             this.textBox_v.Location = new System.Drawing.Point(662, 101);
             this.textBox_v.Name = "textBox_v";
             this.textBox_v.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox_v.Size = new System.Drawing.Size(95, 20);
+            this.textBox_v.Size = new System.Drawing.Size(116, 20);
             this.textBox_v.TabIndex = 29;
             // 
             // textBox_q
@@ -229,28 +286,28 @@
             this.textBox_q.Location = new System.Drawing.Point(662, 75);
             this.textBox_q.Name = "textBox_q";
             this.textBox_q.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox_q.Size = new System.Drawing.Size(95, 20);
+            this.textBox_q.Size = new System.Drawing.Size(116, 20);
             this.textBox_q.TabIndex = 28;
             // 
             // label_v
             // 
             this.label_v.AutoSize = true;
             this.label_v.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_v.Location = new System.Drawing.Point(643, 104);
+            this.label_v.Location = new System.Drawing.Point(621, 104);
             this.label_v.Name = "label_v";
-            this.label_v.Size = new System.Drawing.Size(13, 13);
+            this.label_v.Size = new System.Drawing.Size(35, 13);
             this.label_v.TabIndex = 27;
-            this.label_v.Text = "v";
+            this.label_v.Text = "DH_v";
             // 
             // label_q
             // 
             this.label_q.AutoSize = true;
             this.label_q.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_q.Location = new System.Drawing.Point(643, 78);
+            this.label_q.Location = new System.Drawing.Point(621, 78);
             this.label_q.Name = "label_q";
-            this.label_q.Size = new System.Drawing.Size(13, 13);
+            this.label_q.Size = new System.Drawing.Size(35, 13);
             this.label_q.TabIndex = 26;
-            this.label_q.Text = "q";
+            this.label_q.Text = "DH_q";
             // 
             // label_y
             // 
@@ -277,7 +334,7 @@
             this.textBox_y.Location = new System.Drawing.Point(662, 49);
             this.textBox_y.Name = "textBox_y";
             this.textBox_y.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox_y.Size = new System.Drawing.Size(95, 20);
+            this.textBox_y.Size = new System.Drawing.Size(116, 20);
             this.textBox_y.TabIndex = 23;
             // 
             // textBox_x
@@ -285,7 +342,7 @@
             this.textBox_x.Location = new System.Drawing.Point(662, 23);
             this.textBox_x.Name = "textBox_x";
             this.textBox_x.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox_x.Size = new System.Drawing.Size(95, 20);
+            this.textBox_x.Size = new System.Drawing.Size(116, 20);
             this.textBox_x.TabIndex = 22;
             // 
             // button_xy
@@ -317,7 +374,6 @@
             this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.comboBox1.Size = new System.Drawing.Size(169, 21);
             this.comboBox1.TabIndex = 19;
-            //this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label_message1
             // 
@@ -331,6 +387,8 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.textBox_TEA_key2);
+            this.panel2.Controls.Add(this.label_TEA_key2);
             this.panel2.Controls.Add(this.label_keys);
             this.panel2.Controls.Add(this.textBox_k);
             this.panel2.Controls.Add(this.label_k);
@@ -352,12 +410,40 @@
             this.panel2.Size = new System.Drawing.Size(791, 183);
             this.panel2.TabIndex = 15;
             // 
+            // textBox_TEA_key2
+            // 
+            this.textBox_TEA_key2.Location = new System.Drawing.Point(662, 104);
+            this.textBox_TEA_key2.Name = "textBox_TEA_key2";
+            this.textBox_TEA_key2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox_TEA_key2.Size = new System.Drawing.Size(116, 20);
+            this.textBox_TEA_key2.TabIndex = 36;
+            // 
+            // label_TEA_key2
+            // 
+            this.label_TEA_key2.AutoSize = true;
+            this.label_TEA_key2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_TEA_key2.Location = new System.Drawing.Point(609, 107);
+            this.label_TEA_key2.Name = "label_TEA_key2";
+            this.label_TEA_key2.Size = new System.Drawing.Size(51, 13);
+            this.label_TEA_key2.TabIndex = 35;
+            this.label_TEA_key2.Text = "TEA_key";
+            // 
+            // label_keys
+            // 
+            this.label_keys.AutoSize = true;
+            this.label_keys.Location = new System.Drawing.Point(688, 6);
+            this.label_keys.Name = "label_keys";
+            this.label_keys.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label_keys.Size = new System.Drawing.Size(42, 13);
+            this.label_keys.TabIndex = 32;
+            this.label_keys.Text = "Ключи:";
+            // 
             // textBox_k
             // 
             this.textBox_k.Location = new System.Drawing.Point(662, 78);
             this.textBox_k.Name = "textBox_k";
             this.textBox_k.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox_k.Size = new System.Drawing.Size(95, 20);
+            this.textBox_k.Size = new System.Drawing.Size(116, 20);
             this.textBox_k.TabIndex = 31;
             // 
             // label_k
@@ -393,14 +479,14 @@
             // 
             this.textBox_n.Location = new System.Drawing.Point(662, 52);
             this.textBox_n.Name = "textBox_n";
-            this.textBox_n.Size = new System.Drawing.Size(95, 20);
+            this.textBox_n.Size = new System.Drawing.Size(116, 20);
             this.textBox_n.TabIndex = 27;
             // 
             // textBox_d
             // 
             this.textBox_d.Location = new System.Drawing.Point(662, 26);
             this.textBox_d.Name = "textBox_d";
-            this.textBox_d.Size = new System.Drawing.Size(95, 20);
+            this.textBox_d.Size = new System.Drawing.Size(116, 20);
             this.textBox_d.TabIndex = 26;
             // 
             // label7
@@ -455,42 +541,13 @@
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             this.открытьToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.выходToolStripMenuItem.Text = "Выход";
-            // 
-            // label_var
-            // 
-            this.label_var.AutoSize = true;
-            this.label_var.Location = new System.Drawing.Point(672, 3);
-            this.label_var.Name = "label_var";
-            this.label_var.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label_var.Size = new System.Drawing.Size(76, 13);
-            this.label_var.TabIndex = 30;
-            this.label_var.Text = "Переменные:";
-            // 
-            // button_qv
-            // 
-            this.button_qv.Location = new System.Drawing.Point(523, 49);
-            this.button_qv.Name = "button_qv";
-            this.button_qv.Size = new System.Drawing.Size(80, 42);
-            this.button_qv.TabIndex = 31;
-            this.button_qv.Text = "Сгенеривать q и v";
-            this.button_qv.UseVisualStyleBackColor = true;
-            this.button_qv.Click += new System.EventHandler(this.button_qv_Click);
-            // 
-            // label_keys
-            // 
-            this.label_keys.AutoSize = true;
-            this.label_keys.Location = new System.Drawing.Point(688, 6);
-            this.label_keys.Name = "label_keys";
-            this.label_keys.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label_keys.Size = new System.Drawing.Size(42, 13);
-            this.label_keys.TabIndex = 32;
-            this.label_keys.Text = "Ключи:";
             // 
             // Form1
             // 
@@ -560,6 +617,11 @@
         private System.Windows.Forms.Button button_qv;
         private System.Windows.Forms.Label label_var;
         private System.Windows.Forms.Label label_keys;
+        private System.Windows.Forms.TextBox textBox_TEA_key;
+        private System.Windows.Forms.Label label_TEA_key;
+        private System.Windows.Forms.Button button_TEA_key;
+        private System.Windows.Forms.TextBox textBox_TEA_key2;
+        private System.Windows.Forms.Label label_TEA_key2;
     }
 }
 
