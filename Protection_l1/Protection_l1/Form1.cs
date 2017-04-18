@@ -35,12 +35,14 @@ namespace Encryption
             comboBox1.Items.Add("Диффи-Хеллмана");
             comboBox1.Items.Add("TEA");
             comboBox1.Items.Add("Бит четности");
+            comboBox1.Items.Add("RLE");
             comboBox1.SelectedItem = "Перестановка";
             comboBox2.Items.Add("Перестановка");
             comboBox2.Items.Add("RSA");
             comboBox2.Items.Add("Диффи-Хеллмана");
             comboBox2.Items.Add("TEA");
             comboBox2.Items.Add("Бит четности");
+            comboBox2.Items.Add("RLE");
         }
 
         //Сгенерировать х и у
@@ -90,6 +92,9 @@ namespace Encryption
                         case "Бит четности":
                             result = method_ParityCheck.Value.Encoding(textBox1.Text);
                             break;
+                        case "RLE":
+                            result = RLE.Encode(textBox1.Text);
+                            break;
                     }
                     textBox_result_chiper.Text = result[0];
                 }
@@ -98,7 +103,8 @@ namespace Encryption
                     MessageBox.Show("Введите текст");
                 }
             }
-            catch { MessageBox.Show("Выберите метод"); }
+            catch (Exception ex)
+            { MessageBox.Show(ex.ToString()); }
         }
 
         private void Clear1_Click(object sender, EventArgs e)
@@ -134,6 +140,9 @@ namespace Encryption
                             break;
                         case "Бит четности":
                             result = method_ParityCheck.Value.Decoding(textBox2.Text);
+                            break;
+                        case "RLE":
+                            result = RLE.Decode(textBox2.Text);
                             break;
                     }
                     textBox_result_decryption.Text = result;

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationMethod.cs" />
+    <Compile Include="Methods\RLE.cs" />
     <Compile Include="Methods\Diffie_Hellman.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
